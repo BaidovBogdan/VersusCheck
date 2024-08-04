@@ -1,0 +1,85 @@
+import { useAtom } from 'jotai';
+import { useCardAtom } from '../../../shared/atom/allAtoms';
+import { Button } from 'antd';
+
+interface CheckProps {
+  id: string;
+}
+
+export default function Check({ id }: CheckProps) {
+  const [card, setCard] = useAtom(useCardAtom);
+
+  const handleButtonClick = (value: string) => {
+    setCard((prev) => ({ ...prev, [id]: value }));
+  };
+
+  return (
+    <>
+      <div className="p-4 md:flex justify-center flex-wrap items-center">
+        <p>Compare</p>
+        <div className="p-4 md:flex justify-center flex-wrap items-center">
+          <Button
+            onClick={() => handleButtonClick('Better')}
+            className={
+              card[id] === 'Better'
+                ? 'bg-blue-500 text-white'
+                : 'text-black bg-transparent'
+            }
+          >
+            Better
+          </Button>
+          <Button
+            onClick={() => handleButtonClick('Expensive')}
+            className={
+              card[id] === 'Expensive'
+                ? 'bg-blue-500 text-white'
+                : 'text-black bg-transparent'
+            }
+          >
+            Expensive
+          </Button>
+          <Button
+            onClick={() => handleButtonClick('Reliable')}
+            className={
+              card[id] === 'Reliable'
+                ? 'bg-blue-500 text-white'
+                : 'text-black bg-transparent'
+            }
+          >
+            Reliable
+          </Button>
+          <Button
+            onClick={() => handleButtonClick('Cheaper')}
+            className={
+              card[id] === 'Cheaper'
+                ? 'bg-blue-500 text-white'
+                : 'text-black bg-transparent'
+            }
+          >
+            Cheaper
+          </Button>
+          <Button
+            onClick={() => handleButtonClick('Faster')}
+            className={
+              card[id] === 'Faster'
+                ? 'bg-blue-500 text-white'
+                : 'text-black bg-transparent'
+            }
+          >
+            Faster
+          </Button>
+          <Button
+            onClick={() => handleButtonClick('Dangerous')}
+            className={
+              card[id] === 'Dangerous'
+                ? 'bg-blue-500 text-white'
+                : 'text-black bg-transparent'
+            }
+          >
+            Dangerous
+          </Button>
+        </div>
+      </div>
+    </>
+  );
+}
