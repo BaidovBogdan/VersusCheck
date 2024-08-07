@@ -15,15 +15,15 @@ export default function Check({ id }: CheckProps) {
 
   return (
     <>
-      <div className="p-4 md:flex justify-center flex-wrap items-center">
-        <p>Compare</p>
+      <div className="p-4 md:flex justify-center flex-wrap items-start">
+        <p className="">Compare</p>
         <div className="p-4 md:flex justify-center flex-wrap items-center">
           <Button
             onClick={() => handleButtonClick('Better')}
             className={
               card[id] === 'Better'
-                ? 'bg-blue-500 text-white'
-                : 'text-black bg-transparent'
+                ? 'bg-blue-500 text-white h-7'
+                : 'text-black bg-transparent border-none h-7'
             }
           >
             Better
@@ -32,8 +32,8 @@ export default function Check({ id }: CheckProps) {
             onClick={() => handleButtonClick('Expensive')}
             className={
               card[id] === 'Expensive'
-                ? 'bg-blue-500 text-white'
-                : 'text-black bg-transparent'
+                ? 'bg-blue-500 text-white h-7'
+                : 'text-black bg-transparent border-none h-7'
             }
           >
             Expensive
@@ -42,8 +42,8 @@ export default function Check({ id }: CheckProps) {
             onClick={() => handleButtonClick('Reliable')}
             className={
               card[id] === 'Reliable'
-                ? 'bg-blue-500 text-white'
-                : 'text-black bg-transparent'
+                ? 'bg-blue-500 text-white h-7'
+                : 'text-black bg-transparent border-none h-7'
             }
           >
             Reliable
@@ -52,8 +52,8 @@ export default function Check({ id }: CheckProps) {
             onClick={() => handleButtonClick('Cheaper')}
             className={
               card[id] === 'Cheaper'
-                ? 'bg-blue-500 text-white'
-                : 'text-black bg-transparent'
+                ? 'bg-blue-500 text-white h-7'
+                : 'text-black bg-transparent border-none h-7'
             }
           >
             Cheaper
@@ -62,8 +62,8 @@ export default function Check({ id }: CheckProps) {
             onClick={() => handleButtonClick('Faster')}
             className={
               card[id] === 'Faster'
-                ? 'bg-blue-500 text-white'
-                : 'text-black bg-transparent'
+                ? 'bg-blue-500 text-white h-7'
+                : 'text-black bg-transparent border-none h-7'
             }
           >
             Faster
@@ -72,8 +72,8 @@ export default function Check({ id }: CheckProps) {
             onClick={() => handleButtonClick('Dangerous')}
             className={
               card[id] === 'Dangerous'
-                ? 'bg-blue-500 text-white'
-                : 'text-black bg-transparent'
+                ? 'bg-blue-500 text-white h-7'
+                : 'text-black bg-transparent border-none h-7'
             }
           >
             Dangerous

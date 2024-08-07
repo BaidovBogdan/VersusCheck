@@ -6,9 +6,8 @@ export interface HistoryCardProps {
 
 export default function HistoryCard({ value }: HistoryCardProps) {
   return (
-    <div className="flex justify-center flex-col items-center cente">
-      <i>{value}</i>
-      <br />
+    <div className="flex justify-center flex-col p-4 items-start">
+      <i className="text-left">{value}</i>
     </div>
   );
 }

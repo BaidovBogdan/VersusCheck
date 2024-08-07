@@ -27,29 +27,26 @@ export default function InputComponent({ id }: InputProps) {
   };
 
   return (
-    <div className="p-4 md:flex justify-center flex-col items-center">
-      <div className="md:flex flex-col">
-        <div className="md:flex flex-col">
-          <p>Versus</p>
-          <Input
-            value={firstInput}
-            onChange={handleFirstInputChange}
-            className="shadow-xl"
-            suffix={`${firstInput.length}/300`}
-          />
-        </div>
-        <br />
-        <div className="md:flex flex-col">
-          <p>Against</p>
-          <Input
-            value={secondInput}
-            onChange={handleSecondInputChange}
-            className="shadow-xl"
-            suffix={`${secondInput.length}/300`}
-          />
-        </div>
+    <div className="md:flex justify-center p-4 gap-6 flex-row">
+      <div className="w-full md:w-auto">
+        <p>Versus</p>
+        <Input
+          value={firstInput}
+          onChange={handleFirstInputChange}
+          className="shadow-md w-full md:w-48 "
+          suffix={`${firstInput.length}/300`}
+        />
       </div>
       <br />
+      <div>
+        <p>Against</p>
+        <Input
+          value={secondInput}
+          onChange={handleSecondInputChange}
+          className="shadow-md w-full md:w-48"
+          suffix={`${secondInput.length}/300`}
+        />
+      </div>
     </div>
   );
 }

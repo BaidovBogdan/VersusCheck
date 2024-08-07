@@ -4,10 +4,17 @@
   box-sizing: border-box;
 }
 
+p {
+  color: rgba(71, 71, 73, 1);
+}
+
+.asd {
+  color: rgba(117, 117, 118, 1);
+}
+
 body {
   font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
-

@@ -8,6 +8,7 @@ import {
 import { Header } from '../../widgets/header';
 import { Card } from '../../features/card';
 import { Check } from '../../features/check';
+import { Footer } from '../../widgets/footer';
 import { HistoryCard } from '../../features/historyCard/';
 import Groq from 'groq-sdk';
 
@@ -32,13 +33,11 @@ export default function MainPage({ id }: MainPageProps) {
       const content = await fetchChatCompletion(firstInput, secondInput);
       const historyId = Date.now().toString();
 
-      // Add to history at the beginning
       setStorageHistory((prev) => ({
         ...prev,
         [id]: [{ id: historyId, content }, ...(prev[id] || [])],
       }));
 
-      // Clear current inputs
       setInputs((prev) => ({
         ...prev,
         [id]: { firstInput: '', secondInput: '' },
@@ -52,29 +51,34 @@ export default function MainPage({ id }: MainPageProps) {
 
   return (
     <>
-      <Header />
-      <Card id={id} />
-      <Check id={id} />
-      <div className="flex flex-col items-center justify-center">
-        <Button
-          onClick={handleButtonClick}
-          className="p-3 w-4/5 h-10 bg-blue-500 text-white md:w-96"
-        >
-          Versus Check
-        </Button>
-        <br />
-        <p>History:</p>
-        {loading && <p>Loading...</p>}
-        <div className="flex flex-col justify-center items-center">
-          {storageHistory[id]?.map((item) => (
-            <HistoryCard
-              key={item.id}
-              firstInput={firstInput}
-              secondInput={secondInput}
-              value={item.content}
-            />
-          ))}
-        </div>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-[#f8f8f8]">
+        <main className="max-w-5xl w-full">
+          <Header />
+          <Card id={id} />
+          <Check id={id} />
+          <div className="flex flex-col items-center justify-center">
+            <Button
+              onClick={handleButtonClick}
+              className="p-3 w-4/5 h-10 bg-blue-500 text-white md:w-96"
+            >
+              Versus Check
+            </Button>
+            <br />
+            <p>History:</p>
+            {loading && <p>Loading...</p>}
+            <div className="flex flex-col justify-center items-center">
+              {storageHistory[id]?.map((item) => (
+                <HistoryCard
+                  key={item.id}
+                  firstInput={firstInput}
+                  secondInput={secondInput}
+                  value={item.content}
+                />
+              ))}
+            </div>
+          </div>
+          <Footer />
+        </main>
       </div>
     </>
   );
